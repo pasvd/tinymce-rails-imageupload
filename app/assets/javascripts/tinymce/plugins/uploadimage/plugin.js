@@ -13,11 +13,10 @@
         win = editor.windowManager.open({
           title: ed.translate('Insert an image from your computer'),
           width:  500 + parseInt(editor.getLang('uploadimage.delta_width', 0), 10),
-          height: 180 + parseInt(editor.getLang('uploadimage.delta_height', 0), 10),
+          height: 130 + parseInt(editor.getLang('uploadimage.delta_height', 0), 10),
           body: [
             {type: 'iframe',  url: 'javascript:void(0)'},
             {type: 'textbox', name: 'file', label: ed.translate('Choose an image'), subtype: 'file'},
-            {type: 'textbox', name: 'alt',  label: ed.translate('Image description')},
             {type: 'container', classes: 'error', html: "<p style='color: #b94a48;'>&nbsp;</p>"},
           ],
           buttons: [
@@ -57,6 +56,7 @@
         form.appendChild(createElement('input', {type: "hidden", name: "utf8", value: "✓"}));
         form.appendChild(createElement('input', {type: 'hidden', name: 'authenticity_token', value: getMetaContents('csrf-token')}));
         form.appendChild(createElement('input', {type: 'hidden', name: 'hint', value: ed.getParam("uploadimage_hint", "")}));
+        form.appendChild(createElement('input', {type: 'hidden', name: 'concept_html', value: ed.getParam("uploadimage_concept_html", "")}));
 
         var el = win.getEl();
         var body = document.getElementById(el.id + "-body");
@@ -170,6 +170,8 @@
         if(default_class != "")
           imgstr += " class='" + default_class + "'";
 
+        if(json["image"]["data-id"])
+          imgstr += " data-id='" + json["image"]["data-id"] + "'";
         if(json["image"]["height"])
           imgstr += " height='" + json["image"]["height"] + "'";
         if(json["image"]["width"])
