@@ -7,5 +7,5 @@ tinyMCE.addI18n('zh-cn', {
   "Didn't get a response from the server": "\u670d\u52a1\u5668\u6ca1\u6709\u54cd\u5e94",
   'Insert': "\u63d2\u5165",
   'Cancel': "\u53d6\u6d88",
-  'Image description': "\u56fe\u7247\u63cf\u8ff0",
+  'Image description': "\u56fe\u7247\u63cf\u8ff0"
 });

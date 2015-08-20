@@ -7,5 +7,5 @@ tinyMCE.addI18n('en', {
   "Didn't get a response from the server": "Didn't get a response from the server",
   'Insert': "Insert",
   'Cancel': "Cancel",
-  'Image description': "Image description",
+  'Image description': "Image description"
 });
